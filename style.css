@@ -1,0 +1,507 @@
+/* Variables CSS */
+:root {
+    --primary-color: #2C3E50; /* Azul oscuro/grisáceo */
+    --secondary-color: #18BC9C; /* Turquesa/Verde menta */
+    --accent-color: #F39C12; /* Naranja */
+    --light-color: #ECF0F1; /* Gris claro */
+    --dark-color: #34495E; /* Azul grisáceo más oscuro */
+    --font-family: 'Arial', sans-serif;
+    --border-radius: 0.375rem; /* Bootstrap default: 0.375rem */
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos Generales */
+body {
+    font-family: var(--font-family);
+    color: var(--dark-color);
+    line-height: 1.6;
+    padding-top: 70px; /* Ajuste para navbar fija, altura de navbar puede variar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 2rem; /* Bootstrap mb-4 es 1.5rem, mb-5 es 3rem */
+}
+.section-title i {
+    color: var(--secondary-color);
+}
+
+/* Scroll Suave (CSS) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--light-color) !important;
+}
+.navbar-brand:hover {
+    color: var(--secondary-color) !important;
+}
+.navbar .nav-link {
+    color: var(--light-color) !important;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--secondary-color) !important;
+    font-weight: 500;
+}
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28236, 240, 241, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* Sección Inicio (Hero) */
+.hero-section {
+    min-height: calc(70vh - 70px); /* 70vh menos la altura del navbar */
+    background-color: var(--primary-color); /* Fallback si la imagen no carga */
+    position: relative; /* Para el overlay */
+    background-size: cover;
+    background-position: center;
+    color: var(--light-color); /* Texto blanco para contraste */
+}
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.6); /* Overlay oscuro para legibilidad del texto */
+    z-index: 1;
+}
+.hero-section .container {
+    z-index: 2; /* Para que el contenido esté sobre el overlay */
+}
+
+.hero-section h1 {
+    color: var(--light-color);
+}
+.hero-section p.lead {
+    color: var(--light-color);
+    opacity: 0.9;
+}
+.btn-accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-accent:hover {
+    background-color: #d88c0a; /* Un poco más oscuro que accent */
+    border-color: #d88c0a;
+    color: white;
+    transform: translateY(-2px);
+}
+.hero-banner-image-container {
+    width: 100%;
+    max-height: 400px; /* Ajusta según sea necesario */
+    overflow: hidden; /* Para que object-fit funcione bien */
+}
+#hero-banner-img {
+    width: 100%;
+    height: 100%; /* El contenedor padre define la altura visible */
+    object-fit: cover;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Sección Servicios */
+.service-card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Para que la imagen no se salga con el border-radius */
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+}
+.service-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+.service-card .card-body {
+    padding: 1.5rem;
+}
+.service-card .service-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+.service-card .card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Sección Equipo */
+.bg-light-custom {
+    background-color: #f8f9fa; /* Color de fondo claro de Bootstrap */
+}
+.team-card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+}
+.team-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.1);
+}
+.team-card .card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.team-card .text-muted {
+    color: var(--accent-color) !important;
+    font-weight: 500;
+}
+
+/* Sección Testimonios */
+.testimonial-card {
+    border: 2px solid transparent; /* Espacio para el borde animado */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.3s ease;
+    padding: 1rem; /* Padding interno para que el borde no esté pegado al contenido */
+}
+.testimonial-card:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
+    animation: heartBeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.animated-border {
+    position: relative;
+    padding: 1.25rem; /* Ajustar padding si es necesario */
+}
+.animated-border::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px; /* Controla el grosor del borde */
+    z-index: -1;
+    border-radius: var(--border-radius); /* Mismo que la card */
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 400% 400%;
+    animation: rainbowBorder 8s linear infinite;
+}
+
+@keyframes rainbowBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.testimonial-card .card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.testimonial-card .card-text {
+    font-style: italic;
+    color: var(--dark-color);
+}
+.text-brown { color: #A0522D; } /* Para el icono de hueso, por ejemplo */
+
+/* Estilo para los controles del carrusel */
+#testimonialCarousel .carousel-control-prev-icon,
+#testimonialCarousel .carousel-control-next-icon {
+    background-color: var(--primary-color); /* Color de fondo del icono */
+    border-radius: 50%; /* Hacerlos circulares */
+    padding: 10px; /* Espacio alrededor del icono SVG */
+    background-size: 60% 60%; /* Ajustar tamaño del SVG interno */
+}
+#testimonialCarousel .carousel-control-prev,
+#testimonialCarousel .carousel-control-next {
+    width: 5%; /* Ancho de los botones */
+}
+/* Posicionar botones fuera del carrusel visualmente */
+#testimonialCarousel .carousel-control-prev {
+    left: -6%; /* Ajustar para mover a la izquierda */
+}
+#testimonialCarousel .carousel-control-next {
+    right: -6%; /* Ajustar para mover a la derecha */
+}
+
+
+/* Sección Contacto */
+.contact-info-card {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-info-card:hover {
+    transform: scale(1.03);
+    box-shadow: var(--box-shadow-hover);
+}
+.contact-info-card h3, .contact-info-card p, .contact-info-card a {
+    color: var(--light-color);
+}
+.contact-info-card a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.phone-number-lg {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.btn-whatsapp {
+    background-color: #25D366; /* Color de WhatsApp */
+    border-color: #25D366;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-whatsapp:hover {
+    background-color: #1DAE54; /* WhatsApp más oscuro */
+    color: white;
+    transform: translateY(-2px);
+}
+
+.contact-form-container {
+    background-color: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.contact-form-container .form-control {
+    border-radius: var(--border-radius);
+    padding: 0.75rem;
+}
+.contact-form-container .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(24, 188, 156, 0.25);
+}
+.contact-form-container .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.contact-form-container .btn-primary:hover {
+    background-color: var(--dark-color);
+    border-color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+footer .social-icons a {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Para que transform funcione */
+}
+footer .social-icons a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Modal */
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Para hacerla blanca */
+}
+.modal-title {
+    color: var(--light-color);
+}
+#confirmacionModal .btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+#confirmacionModal .btn-primary:hover {
+    background-color: #13a286; /* Un poco más oscuro */
+    border-color: #13a286;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 991.98px) { /* Tablets y móviles grandes */
+    #testimonialCarousel .carousel-control-prev,
+    #testimonialCarousel .carousel-control-next {
+        /* Moverlos a una posición más estándar en pantallas pequeñas */
+        left: 0; 
+        right: 0;
+        width: 15%; /* Bootstrap default */
+        background: rgba(0,0,0,0.2); /* Fondo semi-transparente para visibilidad */
+    }
+    .hero-section {
+        min-height: calc(80vh - 70px);
+    }
+    #hero-banner-img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 767.98px) { /* Móviles */
+    body {
+        padding-top: 65px; /* Ajustar si el navbar cambia de altura */
+    }
+    .hero-section {
+        min-height: calc(90vh - 65px);
+        text-align: center;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem; /* Más pequeño para móviles */
+    }
+    .hero-section p.lead {
+        font-size: 1rem;
+    }
+    #hero-banner-img {
+        max-height: 250px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .contact-info-card, .contact-form-container {
+        padding: 1.5rem !important;
+    }
+    .phone-number-lg {
+        font-size: 1.5rem;
+    }
+    /* Carrusel de testimonios en móvil: 1 card por slide */
+    #testimonialCarousel .carousel-inner .col-lg-3.col-md-6 {
+        /* En móvil, cada item de la fila será el 100% del ancho */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    /* Para que solo se muestre una card a la vez en móvil dentro del carousel-item */
+    #testimonialCarousel .carousel-item .row > div:not(:first-child) {
+      display: none; /* Oculta todas menos la primera card por slide en móvil */
+    }
+    /* Si queremos que el carrusel deslice card por card en móvil: */
+    /* Necesitaríamos cambiar la estructura HTML o usar JS más complejo */
+    /* Para simplificar, mantenemos el slide de 4 (o menos en el último) */
+    /* pero solo se muestra la primera card de ese grupo en vistas muy pequeñas */
+    /* Una mejor aproximación para móviles es hacer que cada item del carrusel contenga una sola tarjeta */
+    /* Esto requiere duplicar los items del carrusel o cambiar la estructura. */
+    /* Por ahora, las cards se apilarán si se usa col-xs-12 (o col-12) implícito */
+    /* La config actual con col-lg-3 col-md-6 hará que en móvil (xs) sea col-12. */
+    /* Entonces cada slide tendrá las cards apiladas verticalmente. */
+    /* Esto no es ideal para un carrusel. */
+    /* Solución rápida: En móvil, que el carrusel muestre 1 card por vista. */
+    /* Para esto, necesitamos que CADA carousel-item tenga UNA sola card en móvil. */
+    /* La estructura actual no lo permite fácilmente sin JS o CSS muy complejo. */
+    /* Lo más simple sería que en móvil el carrusel se oculte o se muestren las cards una debajo de otra sin carrusel. */
+    /* O: para móvil, se puede dejar que Bootstrap haga su trabajo y muestre una card por 'página' de carrusel */
+    /* si cada card está en su propio carousel-item. */
+    /* La actual configuración de .row con .col-md-6 hará que en móvil (menor a md) las columnas se apilen. */
+    /* Para que en móvil se vea 1 card por slide, la estructura debe ser: */
+    /* <div class="carousel-item"><div class="col-12"> CARD </div></div> */
+    /* Esto requiere diferente HTML para móvil o JS. */
+    /* Dejamos la configuración actual de Bootstrap que apilará las 4 cards verticalmente en móvil DENTRO de un mismo slide. */
+    /* Para mostrar 1 card por slide en móvil, se haría esto: */
+    @media (max-width: 767.98px) {
+        #testimonialCarousel .carousel-inner .row .col-lg-3 { /* Se dirige a las columnas de las cards */
+            display: none; /* Oculta todas las cards por defecto en móvil */
+        }
+        #testimonialCarousel .carousel-inner .row .col-lg-3:first-child {
+            display: block; /* Muestra solo la primera card de la fila */
+            flex: 0 0 100%; /* La card ocupa todo el ancho */
+            max-width: 100%;
+        }
+    }
+     /* Mejor solución para carrusel en móvil: que cada col-md-6 ocupe el 100% en < md */
+    /* Ya lo hace por defecto con .col-md-6. El problema es que en un slide habrá 2 (en md) o 4 (en lg) */
+    /* Si queremos 1 card por slide EN MÓVIL, la solución de arriba con display:none/block por JS es mejor */
+    /* Alternativamente, reestructurar el HTML del carrusel para móvil. */
+    /* Dado que es una restricción de "sin JS complejo para esto", dejaremos el comportamiento por defecto de Bootstrap. */
+    /* Lo que significa que en móvil se verán las 2 o 4 cards apiladas verticalmente dentro de cada slide. */
+    /* Para evitar eso, y que se muestre 1 card por slide en móvil, y 2 en tablet, 4 en desktop: */
+    /* This can't be easily done with one Bootstrap carousel structure without JS manipulation. */
+    /* The provided structure (.col-lg-3 .col-md-6) will result in: */
+    /* - LG: 4 cards side-by-side */
+    /* - MD: 2 cards side-by-side (y las otras 2 abajo si hay 4 en el item) */
+    /* - SM/XS: 1 card, apiladas verticalmente. */
+    /* The .carousel-item will slide all of these together. */
+    /* If we want only ONE card visible per slide on mobile: */
+     @media (max-width: 767.98px) {
+        #testimonios .carousel-item > .row > div {
+            display: none; /* Ocultar todos los divs dentro de la fila */
+        }
+        #testimonios .carousel-item.active > .row > div:first-child {
+            display: block; /* Mostrar solo el primer div (card) del slide activo */
+        }
+        /* Esto requiere JS para cambiar la card visible al cambiar slide o usar múltiples carousel-item */
+        /* Mejor hacer cada card un carousel-item y usar CSS para mostrar varios en desktop.
+        Pero la solicitud es con esta estructura, así que se mantendrá el comportamiento por defecto de Bootstrap.
+        Las cards se apilarán en móvil. Para 4 por vista significa 4 apiladas.
+        Esto es aceptable para una primera versión. */
+    }
+
+}
+
+@media (max-width: 575.98px) { /* Móviles pequeños */
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .btn-lg {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+    .contact-info-card .phone-number-lg {
+        font-size: 1.3rem;
+    }
+     #testimonialCarousel .carousel-control-prev,
+    #testimonialCarousel .carousel-control-next {
+        /* Ocultar botones en pantallas muy pequeñas si interfieren mucho */
+        /* display: none; */
+        /* O hacerlos más pequeños y moverlos */
+        transform: scale(0.8);
+    }
+    #testimonialCarousel .carousel-control-prev {
+        left: -2%;
+    }
+    #testimonialCarousel .carousel-control-next {
+        right: -2%;
+    }
+}
